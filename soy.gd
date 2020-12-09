@@ -4,6 +4,7 @@ var following = false
 var dragging_start_position = Vector2()
 
 onready var fren = get_node("fren")
+onready var anim = get_node("fren/SpecialAnim")
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -21,7 +22,8 @@ func _on_soy_gui_input(event):
 				following = false
 				fren.play("idle")
 		elif event.button_index == BUTTON_RIGHT:
-			fren.play("special")
+			#fren.play("AnimationPlayer")
+			anim.play("Special")
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -33,3 +35,9 @@ func _process(_delta):
 func _on_fren_animation_finished():
 	if(fren.animation == "special"):
 		fren.play("idle")
+		
+
+
+func _on_SpecialAnim_animation_finished(anim_name):
+	anim.stop()
+	fren.play("idle")

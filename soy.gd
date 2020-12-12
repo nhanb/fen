@@ -1,7 +1,8 @@
 extends TextureRect
 
-var following = false
+var dragging = false
 var dragging_start_position = Vector2()
+var previous_mouse_position = Vector2()
 
 onready var fren = get_node("fren")
 onready var anim = get_node("fren/SpecialAnim")
@@ -15,11 +16,11 @@ func _on_soy_gui_input(event):
 	if event is InputEventMouseButton:
 		if event.button_index == BUTTON_LEFT:
 			if event.pressed:
-				following = true
+				dragging = true
 				dragging_start_position = get_global_mouse_position()
 				fren.play("drag")
 			else:
-				following = false
+				dragging = false
 				fren.play("idle")
 		elif event.button_index == BUTTON_RIGHT:
 			#fren.play("AnimationPlayer")
@@ -28,8 +29,11 @@ func _on_soy_gui_input(event):
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta):
-	if following:
+	var mouse_position = get_global_mouse_position()
+	if dragging and mouse_position != previous_mouse_position:
 		OS.set_window_position(OS.window_position + get_global_mouse_position() - dragging_start_position)
+	previous_mouse_position = mouse_position
+	
 
 
 func _on_fren_animation_finished():

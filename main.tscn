@@ -231,14 +231,14 @@ light_mask = 0
 position = Vector2( 116, 175 )
 scale = Vector2( 0.5, 0.5 )
 frames = SubResource( 1 )
-frame = 18
+frame = 17
 playing = true
 
 [node name="fren" type="AnimatedSprite" parent="soy"]
 position = Vector2( 135.212, 187.437 )
 frames = SubResource( 2 )
 animation = "idle"
-frame = 39
+frame = 13
 playing = true
 script = ExtResource( 37 )
 
@@ -252,7 +252,7 @@ stream = ExtResource( 143 )
 visible = false
 position = Vector2( 143.75, 90 )
 frames = SubResource( 4 )
-frame = 5
+frame = 11
 playing = true
 [connection signal="gui_input" from="soy" to="soy" method="_on_soy_gui_input"]
 [connection signal="animation_finished" from="soy/fren" to="soy" method="_on_fren_animation_finished"]

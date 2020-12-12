@@ -1,4 +1,4 @@
-extends TextureRect
+extends Control
 
 var dragging = false
 var dragging_start_position = Vector2()
@@ -12,7 +12,7 @@ func _ready():
 	get_tree().get_root().set_transparent_background(true)
 
 
-func _on_soy_gui_input(event):
+func _on_main_gui_input(event):
 	if event is InputEventMouseButton:
 		if event.button_index == BUTTON_LEFT:
 			if event.pressed:

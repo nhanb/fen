@@ -258,3 +258,5 @@ visible = false
 position = Vector2( 178.75, 111 )
 frames = SubResource( 4 )
 [connection signal="gui_input" from="." to="." method="_on_main_gui_input"]
+[connection signal="animation_finished" from="fren" to="." method="_on_fren_animation_finished"]
+[connection signal="animation_finished" from="fren/SpecialAnim" to="." method="_on_SpecialAnim_animation_finished"]

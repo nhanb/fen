@@ -42,6 +42,6 @@ func _on_fren_animation_finished():
 		
 
 
-func _on_SpecialAnim_animation_finished(anim_name):
+func _on_SpecialAnim_animation_finished(_anim_name):
 	anim.stop()
 	fren.play("idle")
